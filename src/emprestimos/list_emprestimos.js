@@ -11,7 +11,7 @@ export default class ListEmprestimos extends React.Component{
         }
         config.headers['Authorization'] = 'Token 57a9e1e162302803a53f6d391ea097f1d405f30f'
         var url = 'http://localhost:8000/emprestimo/'
-        const response = await fetch(url)
+        const response = await fetch(url, config)
         const data = await response.json()
         console.log(data)
         this.setState({list:data, loading:false})
