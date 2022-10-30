@@ -1,3 +1,4 @@
+import Livro from "../components/livros"
 import React from "react"
 
 export default class ListLivros extends React.Component{
@@ -12,13 +13,12 @@ export default class ListLivros extends React.Component{
     }
 
     render(){
+        const listApi = this.state.list;
         return (
             <div>
                 <h2>Minha lista</h2>
                 <ul>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                    <li>item 1</li>
+                    {listApi.map(item => <Livro item={item}/>)}
                 </ul>
             </div>
         )

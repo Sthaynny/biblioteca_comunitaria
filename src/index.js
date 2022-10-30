@@ -1,6 +1,6 @@
 import './index.css';
 
-import ListLivros from './home/list_livros';
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ListLivros />
+    <App />
   </React.StrictMode>
 );
 

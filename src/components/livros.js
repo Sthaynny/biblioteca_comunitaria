@@ -1,5 +1,8 @@
 import React from 'react';
 
 export default function Livro(props){ 
-    return <li>{ props.titulo }</li>
+    const item = props.item;
+    return <>
+        <li>{ item.titulo }</li>
+    </>
 }
