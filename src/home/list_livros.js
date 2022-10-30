@@ -1,7 +1,7 @@
 import React from "react"
 
 export default class ListLivros extends React.Component{
-    state = {list: null, loading: true}
+    state = {list: [], loading: true}
 
     async componentDidMount(){
         var url = 'http://localhost:8000/livro/'
