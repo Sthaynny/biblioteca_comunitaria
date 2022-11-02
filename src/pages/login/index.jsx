@@ -1,19 +1,24 @@
 import "./style.css";
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+
+import { AuthContext } from "../../context/auth";
 
 const LoginPage = () => {
+
+    const {authenticated, login} = useContext(AuthContext)
     const [user, setUser] = useState('');
     const [senha, setSenha] = useState("");
     const handleSubmit = (e) => {
-        e.preventdefault()
+        e.preventDefault();
 
-        console.log("sy=ubnit", {user, senha})
+        console.log("submit", {user, senha})
+        login(user, senha);
     }
     return (
         <div>
             <div id="login">
-                <form method="post" action="">
+                <form onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <div class="field">
                         <p>
@@ -30,7 +35,7 @@ const LoginPage = () => {
                         </p>
                     </div>
                     <div class="actions">
-                        <button type="submit" onSubmit={handleSubmit}>Entrar</button>
+                        <button type="submit" >Entrar</button>
                     </div>
                     <p class="link">
                         Ainda não tem conta?
