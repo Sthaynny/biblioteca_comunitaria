@@ -1,9 +1,8 @@
-import LoginPage from './pages/login';
-
+import AppRoutes from './AppRoutes';
 function App() {
   return (
-    <div>
-      <LoginPage />
+    <div className='app'>
+      <AppRoutes />
     </div>
   );
 }
