@@ -12,7 +12,7 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log("submit", {user, senha})
+        console.log("submit", {user, senha, authenticated})
         login(user, senha);
     }
     return (

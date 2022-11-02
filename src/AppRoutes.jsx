@@ -4,7 +4,7 @@ import {
     Routes
 } from 'react-router-dom';
 
-import { AuthContext } from './context/auth';
+import { AuthProvider } from './context/auth';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import { useState } from 'react';
@@ -20,12 +20,12 @@ const AppRoutes = () => {
     }
     return (
         <Router>
-            <AuthContext.Provider value={{authenticated: !!token, token, login, logout}}>
+            <AuthProvider>
                 <Routes>
                     <Route exact path='/login' element={<LoginPage />} />
                     <Route exact path='/' element={<HomePage />} />
                 </Routes>
-            </AuthContext.Provider>
+            </AuthProvider>
         </Router>
     )
 }
