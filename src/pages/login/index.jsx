@@ -1,10 +1,14 @@
 import "./style.css";
 
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useInsertionEffect, useState} from 'react';
 
 import { AuthContext } from "../../context/auth";
 
 const LoginPage = () => {
+
+    useEffect(()=>{
+        
+    }, [])
 
     const {authenticated, login} = useContext(AuthContext)
     const [user, setUser] = useState('');
