@@ -6,7 +6,7 @@ import {
     Routes
 } from 'react-router-dom';
 
-import Emprestimos from './pages/emprestimos';
+import EmprestimoPage from './pages/emprestimos';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import { useContext } from 'react';
@@ -27,7 +27,7 @@ const AppRoutes = () => {
                 <Routes>
                     <Route exact path='/login' element={<LoginPage />} />
                     <Route exact path='/' element={<HomePage />} />
-                    <Route exact path='/meus-emprestimos' element={<Private><Emprestimos /></Private>} />
+                    <Route exact path='/meus-emprestimos' element={<Private><EmprestimoPage /></Private>} />
                 </Routes>
             </AuthProvider>
         </Router>

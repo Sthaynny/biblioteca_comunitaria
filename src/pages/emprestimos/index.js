@@ -1,32 +1,28 @@
-import React from "react"
+import React, { useContext } from 'react';
 
-export default class Emprestimos extends React.Component{
-    state = {list: null, loading: true}
+import { AuthContext } from "../../context/auth";
 
-    async componentDidMount(){
-        const config ={
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        config.headers['Authorization'] = 'Token 57a9e1e162302803a53f6d391ea097f1d405f30f'
-        var url = 'http://localhost:8000/emprestimo/'
-        const response = await fetch(url, config)
-        const data = await response.json()
-        console.log(data)
-        this.setState({list:data, loading:false})
+const EmprestimoPage = () => {
+
+
+    const { logout, authenticated } = useContext(AuthContext)
+    const handleLogout = (e) => {
+        logout()
     }
-
-    render(){
-        return (
-            <div>
-                <h2>Meus emprestimos</h2>
-                <ul>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                    <li>item 1</li>
-                </ul>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <h2>Meus emprestimos</h2>
+            <ul>
+                <li>item 1</li>
+                <li>item 1</li>
+                <li>item 1</li>
+            </ul>
+            <p>
+                {String(authenticated)}
+            </p>
+            <button onClick={handleLogout}>Logout</button>
+        </div>
+    );
 }
+
+export default EmprestimoPage;

@@ -1,26 +1,28 @@
-import Livro from "../components/livros"
-import React from "react"
+import React, { useContext } from 'react';
 
-export default class HomePege extends React.Component{
-    state = {list: [], loading: true}
+import { AuthContext } from "../../context/auth";
 
-    async componentDidMount(){
-        var url = 'http://localhost:8000/livro/'
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-        this.setState({list:data, loading:false})
+const HomePage = () => {
+
+
+    const { logout, authenticated } = useContext(AuthContext)
+    const handleLogout = (e) => {
+        logout()
     }
-
-    render(){
-        const listApi = this.state.list;
-        return (
-            <div>
-                <h2>Minha lista</h2>
-                <ul>
-                    {listApi.map(item => <Livro item={item}/>)}
-                </ul>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <h2>Meus emprestimos</h2>
+            <ul>
+                <li>item 1</li>
+                <li>item 1</li>
+                <li>item 1</li>
+            </ul>
+            <p>
+                {String(authenticated)}
+            </p>
+            <button onClick={handleLogout}>Logout</button>
+        </div>
+    );
 }
+
+export default HomePage;

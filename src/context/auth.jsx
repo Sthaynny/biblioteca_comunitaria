@@ -33,7 +33,9 @@ export const AuthProvider = ({children})=>{
         
     }
     const logout = ()=>{
-        console.log("logout")
+        localStorage.removeItem("token")
+        console.log("logout")   
+        window.location.reload()
     }
     return (
         <AuthContext.Provider value={{authenticated: !!token, token, loading, login, logout}}>
