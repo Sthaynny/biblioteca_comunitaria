@@ -1,3 +1,4 @@
+import { api, loginSession } from '../services/api';
 import { createContext, useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
@@ -21,13 +22,15 @@ export const AuthProvider = ({children})=>{
         setLoading(false);
     }, []);
     
-    const login = (username, senha)=>{
+    const login = async (username, senha)=>{
         
-        console.log('login', {username, senha})
-        if(senha ==='senha'){
-            setToken('asd')
- 
+        
+        const response = await loginSession(username, senha);
+        console.log('login', response.data)
+        if(!!response.data){
+            setToken(response.data["token"])
             localStorage.setItem("token", token)
+            api.defaults.headers.Authorization  = token
             navigate('/')
         }
         
@@ -35,6 +38,8 @@ export const AuthProvider = ({children})=>{
     const logout = ()=>{
         localStorage.removeItem("token")
         console.log("logout")   
+        api.defaults.headers.Authorization = null
+        setToken(null)
         window.location.reload()
     }
     return (
