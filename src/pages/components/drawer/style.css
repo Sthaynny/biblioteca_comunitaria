@@ -1,0 +1,18 @@
+h2 {
+    left: 106px;
+    top: 14px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #00FF88;
+    text-align: center;
+}
+
+a.option { 
+    width: 90%;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+}

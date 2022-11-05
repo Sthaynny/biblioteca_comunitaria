@@ -1,15 +1,13 @@
 import React, { useContext, useState } from 'react';
-import Drawer from 'react-modern-drawer';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/auth';
+import { DrawerApp } from '../drawer';
 import "./style.css";
 
 import 'react-modern-drawer/dist/index.css';
 export const HeaderApp = () => {
+    
     const [isOpen, setIsOpen] = useState(false)
-    const toggleDrawer = () => {
-        setIsOpen((prevState) => !prevState)
-    }
     const navigate = useNavigate();
     const { logout, authenticated } = useContext(AuthContext)
 
@@ -33,11 +31,12 @@ export const HeaderApp = () => {
         e.preventDefault();
         navigate('/')
     }
+    const toggleDrawer = () => {
+        setIsOpen((prevState) => !prevState)
+    }
     return <>
         <div class="header">
-            <Drawer open={isOpen} onClose={toggleDrawer} direction='left'  style={{backgroundColor: '#362E49',}}>
-                <div>Hello World</div>
-            </Drawer>
+            <DrawerApp isOpen={isOpen} toggleDrawer={toggleDrawer}/>
             <Link className="logo" onClick={handleHome}>Biblioteca Comunitaria</Link>
             <div class="header-right">
                 <AcoesHeader />
