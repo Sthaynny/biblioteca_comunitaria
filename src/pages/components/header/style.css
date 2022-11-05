@@ -1,0 +1,62 @@
+.header {
+    overflow: hidden;
+    background: #362E49;
+    padding: 10px 10px;
+}
+
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    line-height: 25px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #00FF88;
+}
+
+.header a.logo {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: transparent;
+    box-sizing: 0px;
+    
+}
+
+.header a.login {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    box-sizing: 0px;
+    
+}
+
+.header a.login:hover { 
+    color: dodgerblue;
+}
+
+.header a:hover {
+    color: white;
+}
+
+.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}

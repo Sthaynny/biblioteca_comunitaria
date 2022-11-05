@@ -14,10 +14,10 @@ export const AuthProvider = ({children})=>{
     const [loading, setLoading]= useState(true)
     
     useEffect(() => {
-        const  result = localStorage.getItem("token")
-
-        if(result){
+        const  result = localStorage.getItem("token") 
+        if(!!result){
             setToken(result)
+            api.defaults.headers.Authorization  = `Token ${result}`  
         }
         setLoading(false);
     }, []);
@@ -29,8 +29,8 @@ export const AuthProvider = ({children})=>{
         console.log('login', response.data)
         if(!!response.data){
             setToken(response.data["token"])
-            localStorage.setItem("token", token)
-            api.defaults.headers.Authorization  = token
+            localStorage.setItem("token", response.data["token"])
+            api.defaults.headers.Authorization  = `Token ${response.data["token"]}`
             navigate('/')
         }
         
