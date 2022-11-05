@@ -1,10 +1,13 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/auth';
-import { DrawerApp } from '../drawer';
+import 'react-modern-drawer/dist/index.css';
 import "./style.css";
 
-import 'react-modern-drawer/dist/index.css';
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+
+import { AuthContext } from '../../../context/auth';
+import { DrawerApp } from '../drawer';
+import drawerLogo from '../../../icons/drawer.png';
+
 export const HeaderApp = () => {
     
     const [isOpen, setIsOpen] = useState(false)
@@ -37,11 +40,11 @@ export const HeaderApp = () => {
     return <>
         <div class="header">
             <DrawerApp isOpen={isOpen} toggleDrawer={toggleDrawer}/>
+            <Link onClick={toggleDrawer}><img src={drawerLogo}/></Link>
             <Link className="logo" onClick={handleHome}>Biblioteca Comunitaria</Link>
             <div class="header-right">
                 <AcoesHeader />
             </div>
-            <button onClick={toggleDrawer}>Show</button>
         </div>
     </>
 }

@@ -16,3 +16,8 @@ a.option {
     border: 1px solid #FFFFFF;
     text-align: center;
 }
+a.option:hover { 
+    background-color: dodgerblue;
+    font-weight: 700;
+        border: 1px solid dodgerblue;
+}
