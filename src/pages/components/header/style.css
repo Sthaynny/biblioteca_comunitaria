@@ -1,4 +1,9 @@
 .header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
     background: #362E49;
     padding: 10px 10px;
@@ -21,7 +26,7 @@
     font-weight: bold;
     background-color: transparent;
     box-sizing: 0px;
-    
+
 }
 
 .header .login {
@@ -29,10 +34,10 @@
     font-weight: bold;
     color: white;
     box-sizing: 0px;
-    
+
 }
 
-.header a.login:hover { 
+.header a.login:hover {
     color: dodgerblue;
 }
 

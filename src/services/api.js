@@ -8,6 +8,14 @@ export const loginSession = async (username, password) =>{
     return api.post("/login/", {username, password})
 }
 
+export const getLivros = async () => {
+    return api.get("/livros/" )
+}
+
+export const getEmprestimo = async () => {
+    return api.get("/emprestimos/" )
+}
+
 export const getUser = async () => {
     return api.get("/lists/" )
 }
