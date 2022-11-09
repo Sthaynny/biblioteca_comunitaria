@@ -6,17 +6,17 @@ import {
     Routes
 } from 'react-router-dom';
 
+import CadastroPage from './pages/cadastro';
 import EmprestimoPage from './pages/emprestimos';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import { useContext } from 'react';
-import Cadastro from './pages/cadastro'
 
 const AppRoutes = () => {
     const Private = ({ children }) => {
         const { authenticated } = useContext(AuthContext);
         if (!authenticated) {
-            return <Navigate to="/login" />
+            return <Navigate to="/home" />
         }
 
         return children
@@ -29,7 +29,7 @@ const AppRoutes = () => {
                     <Route exact path='/login' element={<LoginPage />} />
                     <Route exact path='/' element={<HomePage />} />
                     <Route exact path='/meus-emprestimos' element={<Private><EmprestimoPage /></Private>} />
-                    <Route exact path='/cadastro-livro' element={<Private><Cadastro /></Private>} />
+                    <Route exact path='/cadastro-livro' element={<CadastroPage />} />
                 </Routes>
             </AuthProvider>
         </Router>
