@@ -5,29 +5,30 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../../context/auth";
 import { HeaderApp } from '../components/header';
 import Livro from '../components/livro';
+import Loader from '../components/loading';
 import { getLivros } from '../../services/api';
 
 const HomePage = () => {
     const [livros, setLivros] = useState([
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
-        {titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg',},
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
+        { titulo: 'Sporting Goods', imagem: 'https://i.pinimg.com/736x/9e/96/6b/9e966b0878d6f1e0704141b16d2d001b.jpg', },
     ]);
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -38,17 +39,18 @@ const HomePage = () => {
             console.log(respose.data);
         })()
     }, []);
-    
-    const {  authenticated } = useContext(AuthContext)
-  
-    if(loading){
+
+    const { authenticated } = useContext(AuthContext)
+
+    if (authenticated) {
         return <div>
-            
             <HeaderApp />
-            Carregando...
+            <div className='loading'>
+                <Loader />
             </div>
+        </div>
     }
-    return ( 
+    return (
         <div>
             <HeaderApp />
             <div className='lista-livros'>
@@ -56,10 +58,10 @@ const HomePage = () => {
                     livros.map((livro) => (
                         <Livro livro={livro}></Livro>
                     ))
-                } 
+                }
             </div>
         </div>
-       
+
     );
 }
 

@@ -10,6 +10,7 @@ import EmprestimoPage from './pages/emprestimos';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import { useContext } from 'react';
+import Cadastro from './pages/cadastro'
 
 const AppRoutes = () => {
     const Private = ({ children }) => {
@@ -28,6 +29,7 @@ const AppRoutes = () => {
                     <Route exact path='/login' element={<LoginPage />} />
                     <Route exact path='/' element={<HomePage />} />
                     <Route exact path='/meus-emprestimos' element={<Private><EmprestimoPage /></Private>} />
+                    <Route exact path='/cadastro-livro' element={<Private><Cadastro /></Private>} />
                 </Routes>
             </AuthProvider>
         </Router>
