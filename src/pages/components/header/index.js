@@ -21,6 +21,14 @@ export const HeaderApp = () => {
         } else {
             return <Link className="login" to='/login'>Login</Link>
         }
+    } 
+    const DrawerHeader = () => {
+        if (authenticated) {
+            return <Link onClick={toggleDrawer}><img src={drawerLogo}/></Link>
+
+        } else {
+            return <div></div>
+        }
     }
 
     const handleLogout = (e) => {
@@ -40,9 +48,9 @@ export const HeaderApp = () => {
     return <>
         <div class="header">
             <DrawerApp isOpen={isOpen} toggleDrawer={toggleDrawer}/>
-            <Link onClick={toggleDrawer}><img src={drawerLogo}/></Link>
+            <DrawerHeader />
             <Link className="logo" onClick={handleHome}>Biblioteca Comunitaria</Link>
-            <div class="header-right">
+            <div className="header-right">
                 <AcoesHeader />
             </div>
         </div>

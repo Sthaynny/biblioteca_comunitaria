@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://ec2-3-83-235-209.compute-1.amazonaws.com:8000'
+    baseURL: 'http://ec2-52-87-227-151.compute-1.amazonaws.com:8000/'
 })
 
 export const loginSession = async (username, password) =>{
@@ -9,7 +9,7 @@ export const loginSession = async (username, password) =>{
 }
 
 export const getLivros = async () => {
-    return api.get("/livros/" )
+    return api.get("/livro/" )
 }
 
 export const getEmprestimo = async () => {

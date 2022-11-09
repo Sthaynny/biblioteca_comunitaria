@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 
 import React from 'react';
 
@@ -7,7 +7,7 @@ export default function Livro(props) {
     return <>
         <div className='livro'>
             <div className='div-img'>
-                <img className='imagem' src={livro.imagem} />
+                <img className='imagem' src={livro.base64} />
             </div>
             <h4>{livro.titulo}</h4>
         </div>
