@@ -1,18 +1,29 @@
 import '../../styles/global.css';
 import './style.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { HeaderApp } from '../components/header';
 import { cadastrarLivro } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
-const CadastroPage = () => {
+const CadastroPage = (props) => {
 
+    const livro = props.livro;
+    
     const [titulo, setTitulo] = useState('');
     const [descricao, setDescricao] = useState('');
     const [autor, setAutor] = useState('');
     const [base64, setBase64] = useState('');
+
+    useEffect(() => {
+        if(livro){
+            setAutor(livro.autor)
+            setBase64(livro.base64)
+            setDescricao(livro.descricao)
+            setTitulo(livro.titulo)
+        }
+    }, []);
 
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
