@@ -24,7 +24,6 @@ export const AuthProvider = ({children})=>{
     
     const login = async (username, senha)=>{
         
-        
         const response = await loginSession(username, senha);
         console.log('login', response.data)
         if(!!response.data){

@@ -10,7 +10,7 @@ export const DrawerApp = (props) => {
     
     return <Drawer open={isOpen} onClose={toggleDrawer} direction='left' style={{ backgroundColor: '#362E49', }}>
         <h2>Menu</h2>
-        <Link className='option'>Cadastro Livro</Link>
+        <Link className='option' to='/cadastro-livro'>Cadastro Livro</Link>
         <Link className='option'>Emprestimos</Link>
     </Drawer>
 }
