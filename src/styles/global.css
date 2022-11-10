@@ -1,4 +1,4 @@
-#input_text{
+#input_text {
     color: white;
     width: 100%;
     background-color: transparent;
@@ -6,39 +6,52 @@
     font-size: 24px;
     border-radius: 12px;
     padding: 4px 8px;
-} 
- 
- 
+}
 
-#titulo_input{
+
+#titulo_input {
     font-size: 24px;
     color: white;
     font-weight: bold;
 }
 
-#primario{
+#primario {
     border-radius: 10px;
-    background-color: blue; 
-    padding: 16px 8px;
+    background-color: blue;
+    padding: 8px 32px;
     color: white;
     text-decoration: none;
-    font-weight: bold; 
+    font-weight: bold;
     box-shadow: none;
 }
 
-#primario:hover{
+#primario:hover {
     background-color: #0B4FE3;
 }
 
-#erro{
+#erro {
     border-radius: 10px;
-    background-color: #FA0900; 
+    background-color: #FA0900;
     padding: 16px 8px;
     color: white;
     text-decoration: none;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
-#erro:hover{
+#erro:hover {
     background-color: #E3320B;
+}
+
+#terciario {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    box-sizing: 0px;
+    margin-right: 16px;
+    text-decoration: none;
+
+}
+
+#terciario:hover {
+    color: dodgerblue;
 }

@@ -1,0 +1,11 @@
+#banner{
+    width: 60%;  
+} 
+
+#div-banner{
+    display: flex;
+    min-height: 100vh; 
+    float: left; 
+    align-items: center;
+    justify-content: center;
+}

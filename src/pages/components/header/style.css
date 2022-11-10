@@ -42,6 +42,19 @@
     color: dodgerblue;
 }
 
+.header .sair {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    box-sizing: 0px;
+    margin-right: 16px;
+
+}
+
+.header a.sair:hover {
+    color: rgb(239, 87, 40);
+}
+
 .header a:hover {
     color: white;
 }

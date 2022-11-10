@@ -7,8 +7,7 @@ import React from 'react';
 const CadastroPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        login(user, senha);
+ 
     }
     return (
         <div>

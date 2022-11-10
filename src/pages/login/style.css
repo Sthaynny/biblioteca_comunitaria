@@ -4,27 +4,23 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 0 2rem;
+    padding: 18px; 
 }
 
 #login form{
-    background-color: #f1f1f1;
+    background-color: #362E49;
     width: 100%;
-    max-width: 480px;
-    padding:  0.5rem;
+    max-width: 400px;
+    justify-content: center;
+    padding:  .8rem .8rem;
 }
 
 #login .field{
-    padding-bottom: .5rem;
+    padding: 0px 32px 0px 8px;
 }
 
 #login .field label{
     display:  block;
-}
-
-#login .field input{
-    width: 100%;
-
 }
 
 #login .actions{
@@ -32,3 +28,7 @@
     margin-top: 0.5rem;
 }
 
+#ou {
+    font-size: 18px;
+    color: white;
+}

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://ec2-52-87-227-151.compute-1.amazonaws.com:8000/'
+    baseURL: 'http://localhost:8000/'
 })
 
 export const loginSession = async (username, password) =>{
