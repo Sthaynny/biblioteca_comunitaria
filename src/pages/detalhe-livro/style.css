@@ -1,0 +1,11 @@
+#capa-livro{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+h3{
+    color: white;
+}
+ 

@@ -1,3 +1,7 @@
+.body{
+    padding: 80px 16px 0px 16px; 
+}
+
 #input_text {
     color: white;
     width: 100%;
