@@ -25,14 +25,12 @@ export const HeaderApp = () => {
     const DrawerHeader = () => {
         if (authenticated) {
             return <Link onClick={toggleDrawer}><img src={drawerLogo}/></Link>
-
         } else {
             return <div></div>
         }
     }
 
     const handleLogout = (e) => {
-
         e.preventDefault();
         logout()
     }
