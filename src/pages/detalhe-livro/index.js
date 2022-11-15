@@ -1,15 +1,17 @@
 import './style.css';
 
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { editarLivro, getLivros } from '../../services/api';
 import { useEffect, useState } from "react";
 
 import { BodyCadastro } from '../cadastro';
 import { HeaderApp } from "../components/header";
 import Loader from '../components/loading';
+import { excluirLivro } from '../../services/api';
 
 const DetalhesLivroPage = () => {
     const { id } = useParams();
+    const navigate = useNavigate()
     const [edicao, setEdicao] = useState(false);
     const [livro, setLivro] = useState();
     const [loading, setLoading] = useState(true);
@@ -80,7 +82,8 @@ const DetalhesLivroPage = () => {
 
                                 <Link type='submit' className='secundario-red' onClick={(e) => {
                                     e.preventDefault();
-                                    setEdicao(true);
+                                    excluirLivro(id)
+                                    navigate('/')
                                 }}>Excluir</Link>
                             </div>
                         </div>

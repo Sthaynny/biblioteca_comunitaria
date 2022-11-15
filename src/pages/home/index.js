@@ -9,7 +9,7 @@ import { getLivros } from '../../services/api';
 
 const HomePage = () => {
     const [livros, setLivros] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         (async () => { 
             const respose = await getLivros(); 
