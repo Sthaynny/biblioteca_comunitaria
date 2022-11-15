@@ -40,6 +40,18 @@ const DetalhesLivroPage = () => {
             alert(error)
         }
     };
+    async function deleteLivro(e) {
+        setLoading(true)
+        e.preventDefault();
+        try {
+            await excluirLivro(id); 
+            setLoading(false)
+            navigate('/')
+            alert('Livro excluido com sucesso!')
+        } catch (error) {
+            alert(error)
+        }
+    };
 
     useEffect(() => {
         getLivro()
@@ -80,11 +92,8 @@ const DetalhesLivroPage = () => {
                             }}>Editar</button>
                             <div id='espacamento-botoes'>
 
-                                <Link type='submit' className='secundario-red' onClick={(e) => {
-                                    e.preventDefault();
-                                    excluirLivro(id)
-                                    navigate('/')
-                                }}>Excluir</Link>
+                                <Link type='submit' className='secundario-red' onClick={deleteLivro
+                                 }>Excluir</Link>
                             </div>
                         </div>
                     </div>
