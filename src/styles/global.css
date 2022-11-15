@@ -46,6 +46,21 @@
     background-color: #E3320B;
 }
 
+.secundario-red {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    box-sizing: 0px;
+    margin-right: 16px;
+    text-decoration: none;
+
+}
+
+a.secundario-red:hover {
+    color: rgb(239, 87, 40);
+}
+
+
 #terciario {
     font-size: 18px;
     font-weight: bold;

@@ -18,6 +18,9 @@ export const cadastrarLivro = async (titulo, descricao, autor, base64) => {
 export const editarLivro = async (id, titulo, descricao, autor, base64, ) => {
     return api.put("/livro/"+id + '/', {id, titulo, descricao, autor, base64 })
 }
+export const excluirLivro = async (id) => {
+    return api.delete("/livro/"+id + '/')
+}
 
 export const getEmprestimo = async () => {
     return api.get("/emprestimos/")

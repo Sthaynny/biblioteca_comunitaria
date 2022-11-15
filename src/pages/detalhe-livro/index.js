@@ -1,12 +1,12 @@
 import './style.css';
 
+import { Link, useParams } from "react-router-dom";
 import { editarLivro, getLivros } from '../../services/api';
 import { useEffect, useState } from "react";
 
 import { BodyCadastro } from '../cadastro';
 import { HeaderApp } from "../components/header";
 import Loader from '../components/loading';
-import { useParams } from "react-router-dom";
 
 const DetalhesLivroPage = () => {
     const { id } = useParams();
@@ -71,11 +71,18 @@ const DetalhesLivroPage = () => {
                             {livro.autor}
                         </h3>
 
-                        <div>
+                        <div id='botoes-bottom'>
                             <button type='submit' id='primario' onClick={(e) => {
                                 e.preventDefault();
                                 setEdicao(true);
                             }}>Editar</button>
+                            <div id='espacamento-botoes'>
+
+                                <Link type='submit' className='secundario-red' onClick={(e) => {
+                                    e.preventDefault();
+                                    setEdicao(true);
+                                }}>Excluir</Link>
+                            </div>
                         </div>
                     </div>
                 )
