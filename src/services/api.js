@@ -12,8 +12,8 @@ export const getLivros = async (id) => {
     return api.get("/livro/" + (id ?? ''))
 }
 
-export const cadastrarLivro = async (titulo, descricao, autor, base64) => {
-    return api.post("/livro/", { titulo, descricao, autor, base64 })
+export const cadastrarLivro = async (titulo, descricao, autor, base64, id) => {
+    return api.post("/livro/"(id ?? ''), { titulo, descricao, autor, base64 })
 }
 
 export const getEmprestimo = async () => {

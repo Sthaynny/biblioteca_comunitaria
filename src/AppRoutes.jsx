@@ -31,7 +31,7 @@ const AppRoutes = () => {
                     <Route exact path='/' element={<HomePage />} />
                     <Route exact path='/meus-emprestimos' element={<Private><EmprestimoPage /></Private>} />
                     <Route exact path='/cadastro-livro' element={<Private><CadastroPage /></Private>} />
-                    <Route exact path='/detalhe-livro/:id' element={ <Private><DetalhesLivroPage /></Private>} />
+                    <Route exact path='/detalhe-livro/:id' element={<DetalhesLivroPage />} />
                 </Routes>
             </AuthProvider>
         </Router>
