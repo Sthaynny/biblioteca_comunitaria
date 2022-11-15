@@ -1,6 +1,6 @@
 import './style.css';
 
-import { cadastrarLivro, getLivros } from '../../services/api';
+import { editarLivro, getLivros } from '../../services/api';
 import { useEffect, useState } from "react";
 
 import { BodyCadastro } from '../cadastro';
@@ -13,25 +13,19 @@ const DetalhesLivroPage = () => {
     const [edicao, setEdicao] = useState(false);
     const [livro, setLivro] = useState();
     const [loading, setLoading] = useState(true);
-    const [titulo, setTitulo] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [autor, setAutor] = useState('');
-    const [base64, setBase64] = useState('');
-
     const handleSubmit = async (e, titulo, descricao, autor, base64) => {
         e.preventDefault();
         try {
-            const response = await cadastrarLivro(titulo, descricao, autor, base64, id)
-            if (response) {
-                setEdicao(false)
-                alert('Livro Criado com sucesso')
-            } else {
-                alert('Erro ao criar novo livro')
-            }
+            setLoading(true)
+            await editarLivro(id, titulo, descricao, autor, base64)
+            alert('Livro Criado com sucesso')
+
         } catch (error) {
             alert(error)
         }
 
+        setEdicao(false)
+        setLoading(false)
         getLivro()
     }
 
@@ -39,19 +33,14 @@ const DetalhesLivroPage = () => {
         try {
             const respose = await getLivros(id);
             setLivro(respose.data);
-            setTitulo(livro.titulo)
-            setAutor(livro.autor)
-            setBase64(livro.base64)
-            setDescricao(livro.descricao)
             setLoading(false)
         } catch (error) {
-
+            alert(error)
         }
     };
 
     useEffect(() => {
         getLivro()
-        setLoading(false)
     }, []);
 
 
@@ -62,7 +51,7 @@ const DetalhesLivroPage = () => {
             </div>
         } else {
             if (edicao) {
-                return <BodyCadastro handleSubmit={(e) => handleSubmit(e, titulo, descricao, autor, base64)} />
+                return <BodyCadastro handleSubmit={handleSubmit} titulo={livro.titulo} descricao={livro.descricao} autor={livro.autor} base64={livro.base64} />
             } else {
                 return (
                     <div className='body'>

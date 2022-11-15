@@ -9,12 +9,12 @@ import { useNavigate } from 'react-router-dom';
 
 export const BodyCadastro = (props) => {
 
-    const handleSubmit = props.handleSubmit
+    const handleSubmit = props.handleSubmit 
 
-    const [titulo, setTitulo] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [autor, setAutor] = useState('');
-    const [base64, setBase64] = useState('');
+    const [titulo, setTitulo] = useState(props.titulo ?? '');
+    const [descricao, setDescricao] = useState(props.descricao ?? '');
+    const [autor, setAutor] = useState(props.autor ?? '');
+    const [base64, setBase64] = useState(props.base64 ?? '');
 
 
     return <div className='cadastro'>
@@ -55,7 +55,7 @@ const CadastroPage = () => {
     return (
         <div>
             <HeaderApp />
-            <BodyCadastro handleSubmit={handleSubmit} />
+            <BodyCadastro handleSubmit={handleSubmit} titulo = '' descricao='' autor='' base64='' />
         </div>
     );
 }
