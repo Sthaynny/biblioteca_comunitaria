@@ -109,7 +109,7 @@ const DetalhesLivroPage = () => {
                             {livro.autor}
                         </h3>
 
-<Buttons />
+                        <Buttons />
                     </div>
                 )
             }
