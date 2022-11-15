@@ -4,12 +4,16 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { editarLivro, getLivros } from '../../services/api';
 import { useEffect, useState } from "react";
 
+import { AuthContext } from '../../context/auth';
 import { BodyCadastro } from '../cadastro';
 import { HeaderApp } from "../components/header";
 import Loader from '../components/loading';
 import { excluirLivro } from '../../services/api';
+import { useContext } from 'react';
 
 const DetalhesLivroPage = () => {
+    const { authenticated } = useContext(AuthContext);
+
     const { id } = useParams();
     const navigate = useNavigate()
     const [edicao, setEdicao] = useState(false);
@@ -44,7 +48,7 @@ const DetalhesLivroPage = () => {
         setLoading(true)
         e.preventDefault();
         try {
-            await excluirLivro(id); 
+            await excluirLivro(id);
             setLoading(false)
             navigate('/')
             alert('Livro excluido com sucesso!')
@@ -58,7 +62,27 @@ const DetalhesLivroPage = () => {
     }, []);
 
 
+
+
+
     const Body = () => {
+        const Buttons = () => {
+            if (authenticated) {
+                return <div id='botoes-bottom'>
+                    <button type='submit' id='primario' onClick={(e) => {
+                        e.preventDefault();
+                        setEdicao(true);
+                    }}>Editar</button>
+                    <div id='espacamento-botoes'>
+
+                        <Link type='submit' className='secundario-red' onClick={deleteLivro
+                        }>Excluir</Link>
+                    </div>
+                </div>
+            } else {
+                return <div></div>
+            }
+        }
         if (loading) {
             return <div className='loading'>
                 <Loader />
@@ -85,17 +109,7 @@ const DetalhesLivroPage = () => {
                             {livro.autor}
                         </h3>
 
-                        <div id='botoes-bottom'>
-                            <button type='submit' id='primario' onClick={(e) => {
-                                e.preventDefault();
-                                setEdicao(true);
-                            }}>Editar</button>
-                            <div id='espacamento-botoes'>
-
-                                <Link type='submit' className='secundario-red' onClick={deleteLivro
-                                 }>Excluir</Link>
-                            </div>
-                        </div>
+<Buttons />
                     </div>
                 )
             }
