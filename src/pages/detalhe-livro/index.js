@@ -18,7 +18,7 @@ const DetalhesLivroPage = () => {
         try {
             setLoading(true)
             await editarLivro(id, titulo, descricao, autor, base64)
-            alert('Livro Criado com sucesso')
+            alert('Livro editado com sucesso')
 
         } catch (error) {
             alert(error)
