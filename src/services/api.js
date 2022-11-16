@@ -8,7 +8,7 @@ export const loginSession = async (username, password) => {
     return api.post("/login/", { username, password })
 }
 
-export const getUsuario = async () => {
+export const getUser = async () => {
     return api.get("/users/")
 }
 
@@ -33,7 +33,4 @@ export const excluirLivro = async (id) => {
 export const getEmprestimo = async () => {
     return api.get("/emprestimos/")
 }
-
-export const getUser = async () => {
-    return api.get("/lists/")
-}
+ 

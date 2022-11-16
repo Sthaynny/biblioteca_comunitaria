@@ -15,7 +15,7 @@ export default function Livro(props) {
         navigate('/detalhe-livro/' + livro.id)
     }
     return <>
-        <Link id='link' onClick={handleLivro}>
+        <Link id='link' to={'/detalhe-livro/' + livro.id}>
         <div className='livro'>
             <div className='div-img'>
                 <img className='imagem' src={livro.base64} />

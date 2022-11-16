@@ -5,14 +5,14 @@ import { editarLivro, getLivros } from '../../services/api';
 import { useEffect, useState } from "react";
 
 import { AuthContext } from '../../context/auth';
-import { BodyCadastro } from '../cadastro';
+import { BodyCadastroLivro } from '../cadastro_livro';
 import { HeaderApp } from "../components/header";
 import Loader from '../components/loading';
 import { excluirLivro } from '../../services/api';
 import { useContext } from 'react';
 
 const DetalhesLivroPage = () => {
-    const { authenticated , superUSer} = useContext(AuthContext);
+    const { authenticated , superUser} = useContext(AuthContext);
 
     const { id } = useParams();
     const navigate = useNavigate()
@@ -63,33 +63,33 @@ const DetalhesLivroPage = () => {
 
 
 
+    const Buttons = () => {
+        if (authenticated && superUser) {
+            return <div id='botoes-bottom'>
+                <button type='submit' id='primario' onClick={(e) => {
+                    e.preventDefault();
+                    setEdicao(true);
+                }}>Editar</button>
+                <div id='espacamento-botoes'>
 
+                    <Link type='submit' className='secundario-red' onClick={deleteLivro
+                    }>Excluir</Link>
+                </div>
+            </div>
+        } else {
+            return <div></div>
+        }
+    }
 
     const Body = () => {
-        const Buttons = () => {
-            if (authenticated && superUSer) {
-                return <div id='botoes-bottom'>
-                    <button type='submit' id='primario' onClick={(e) => {
-                        e.preventDefault();
-                        setEdicao(true);
-                    }}>Editar</button>
-                    <div id='espacamento-botoes'>
-
-                        <Link type='submit' className='secundario-red' onClick={deleteLivro
-                        }>Excluir</Link>
-                    </div>
-                </div>
-            } else {
-                return <div></div>
-            }
-        }
+        
         if (loading) {
             return <div className='loading'>
                 <Loader />
             </div>
         } else {
             if (edicao) {
-                return <BodyCadastro handleSubmit={handleSubmit} titulo={livro.titulo} descricao={livro.descricao} autor={livro.autor} base64={livro.base64} />
+                return <BodyCadastroLivro handleSubmit={handleSubmit} titulo={livro.titulo} descricao={livro.descricao} autor={livro.autor} base64={livro.base64} />
             } else {
                 return (
                     <div className='body'>

@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { HeaderApp } from '../components/header';
 import { cadastrarLivro } from '../../services/api';
 
-export const BodyCadastro = (props) => {
+export const BodyCadastroLivro = (props) => {
 
     const handleSubmit = props.handleSubmit 
 
@@ -36,7 +36,7 @@ export const BodyCadastro = (props) => {
 }
 
 
-const CadastroPage = () => {
+const CadastroPageLivro = () => {
     const navigate = useNavigate();
     const handleSubmit = async (e,titulo, descricao, autor,base64) => {
         e.preventDefault();
@@ -55,9 +55,9 @@ const CadastroPage = () => {
     return (
         <div>
             <HeaderApp />
-            <BodyCadastro handleSubmit={handleSubmit} titulo = '' descricao='' autor='' base64='' />
+            <BodyCadastroLivro handleSubmit={handleSubmit} titulo = '' descricao='' autor='' base64='' />
         </div>
     );
 }
 
-export default CadastroPage;
+export default CadastroPageLivro;
