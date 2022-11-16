@@ -11,16 +11,17 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null)
     const [loading, setLoading] = useState(true)
     const [superUser, setSuperUser] = useState(false);
+
     useEffect(() => {
         const result = localStorage.getItem("token")
         const resultSuperUser = localStorage.getItem("superUser")
         if (!!result && resultSuperUser) {
             setToken(result)
-            setSuperUser(JSON.parse(resultSuperUser)==true )
-            api.defaults.headers.Authorization = `Token ${result}` 
+            setSuperUser(Boolean(resultSuperUser))
+            api.defaults.headers.Authorization = `Token ${result}`
         }
-        setLoading(false); 
-        
+        setLoading(false);
+
     }, []);
 
     const login = async (username, senha) => {
@@ -29,11 +30,10 @@ export const AuthProvider = ({ children }) => {
             const response = await loginSession(username, senha);
             console.log('login', response.data)
             if (!!response.data) {
-                api.defaults.headers.Authorization = `Token ${response.data["token"]}` 
-                setToken(response.data["token"])
-                setSuperUser(username=='sthaynny')
+                api.defaults.headers.Authorization = `Token ${response.data["token"]}`
+                setToken(response.data["token"]) 
                 localStorage.setItem("token", response.data["token"])
-                localStorage.setItem("superUser", JSON.stringify(superUser))
+                localStorage.setItem("superUser", JSON.stringify(username === 'sthaynny'))
                 navigate('/')
             } else {
                 alert('Usuario ou senha incorretos')
@@ -44,14 +44,14 @@ export const AuthProvider = ({ children }) => {
 
     }
     const logout = () => {
-        localStorage.removeItem("token") 
-        localStorage.removeItem("superUser") 
+        localStorage.removeItem("token")
+        localStorage.removeItem("superUser")
         api.defaults.headers.Authorization = null
         setToken(null)
         window.location.reload()
     }
     return (
-        <AuthContext.Provider value={{ authenticated: !!token, token, loading, login, logout, superUser}}>
+        <AuthContext.Provider value={{ authenticated: !!token, token, loading, login, logout, superUser }}>
             {children}
         </AuthContext.Provider>
     )

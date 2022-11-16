@@ -13,7 +13,7 @@ export const getUser = async () => {
 }
 
 export const cadastrarUsuario = async (username , email, password,) => {
-    return api.post("/users/", { username, email,password ,})
+    return api.post("/users/", { username, email ,password ,})
 }
 
 export const getLivros = async (id) => {

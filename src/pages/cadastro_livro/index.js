@@ -18,7 +18,7 @@ export const BodyCadastroLivro = (props) => {
 
 
     return <div className='cadastro'>
-        <form onSubmit={(e) => handleSubmit(e,titulo, descricao, autor,base64)}>
+        <form>
             <h1 id='titulo_input'>Titulo:</h1>
             <input id="input_text" name="titulo" required="required" type="text" placeholder="Digite Aqui ... " value={titulo} onChange={(e) => setTitulo(e.target.value)} />
             <h1 id='titulo_input'>Descrição:</h1>
@@ -29,7 +29,7 @@ export const BodyCadastroLivro = (props) => {
             <textarea id="input_text" name="base64" required="required" type="text" placeholder="Digite Aqui ... " value={base64} onChange={(e) => setBase64(e.target.value)} />
             <br /><br /><br />
             <div>
-                <Link type='submit' id='primario'>Salvar</Link>
+                <Link type='submit' id='primario' onClick={(e) => handleSubmit(e,titulo, descricao, autor,base64)}>Salvar</Link>
             </div>
         </form>
     </div>
@@ -39,7 +39,7 @@ export const BodyCadastroLivro = (props) => {
 const CadastroPageLivro = () => {
     const navigate = useNavigate();
     const handleSubmit = async (e,titulo, descricao, autor,base64) => {
-        e.preventDefault();
+        e.preventDefault(); 
         try {
             const response = await cadastrarLivro(titulo, descricao, autor, base64)
             if (response) {
