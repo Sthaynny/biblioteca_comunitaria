@@ -12,7 +12,7 @@ import { excluirLivro } from '../../services/api';
 import { useContext } from 'react';
 
 const DetalhesLivroPage = () => {
-    const { authenticated } = useContext(AuthContext);
+    const { authenticated , superUSer} = useContext(AuthContext);
 
     const { id } = useParams();
     const navigate = useNavigate()
@@ -67,7 +67,7 @@ const DetalhesLivroPage = () => {
 
     const Body = () => {
         const Buttons = () => {
-            if (authenticated) {
+            if (authenticated && superUSer) {
                 return <div id='botoes-bottom'>
                     <button type='submit' id='primario' onClick={(e) => {
                         e.preventDefault();
