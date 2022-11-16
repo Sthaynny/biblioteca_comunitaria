@@ -1,0 +1,42 @@
+#cadastro-usuario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 18px; 
+}
+
+#cadastro-usuario form{
+    background-color: #362E49;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+    padding:  .8rem .8rem;
+}
+
+#cadastro-usuario .field{
+    padding: 0px 32px 0px 8px;
+}
+
+#cadastro-usuario .field label{
+    display:  block;
+}
+
+#cadastro-usuario .actions{
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+#ou {
+    font-size: 18px;
+    color: white;
+}
+
+.padding-botao-sair{
+    padding: 8px 0px 0px 16px;
+}
+.padding-vertical{
+    padding-top: 64px;
+    padding-bottom: 32px;
+}

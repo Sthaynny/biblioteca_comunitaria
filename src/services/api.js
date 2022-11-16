@@ -12,6 +12,10 @@ export const getUsuario = async () => {
     return api.get("/users/")
 }
 
+export const cadastrarUsuario = async (username , email, password,) => {
+    return api.post("/users/", { username, email,password ,})
+}
+
 export const getLivros = async (id) => {
     return api.get("/livro/" + (id ?? ''))
 }
@@ -19,11 +23,11 @@ export const getLivros = async (id) => {
 export const cadastrarLivro = async (titulo, descricao, autor, base64) => {
     return api.post("/livro/", { titulo, descricao, autor, base64 })
 }
-export const editarLivro = async (id, titulo, descricao, autor, base64, ) => {
-    return api.put("/livro/"+id + '/', {id, titulo, descricao, autor, base64 })
+export const editarLivro = async (id, titulo, descricao, autor, base64,) => {
+    return api.put("/livro/" + id + '/', { id, titulo, descricao, autor, base64 })
 }
 export const excluirLivro = async (id) => {
-    return api.delete("/livro/"+id + '/')
+    return api.delete("/livro/" + id + '/')
 }
 
 export const getEmprestimo = async () => {

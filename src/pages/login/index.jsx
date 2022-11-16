@@ -22,27 +22,27 @@ const LoginPage = () => {
         <div>
             <LogoApp />
             <div id="login">
-                <form onSubmit={handleSubmit}>
+                <form  >
                     <h2>Login</h2>
                     <div className="field">
-                        <p> 
+                        <p>
                             <input id="input_text" name="username" required="required" type="text" placeholder="Usuario" value={user} onChange={(e) => setUser(e.target.value)} />
                         </p>
                     </div>
 
                     <div className="field">
-                        <p> 
+                        <p>
                             <input id="input_text" name="password" required="required" type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                         </p>
                     </div>
                     <div className="actions">
-                        <button type="submit" id="primario">Entrar</button>
+                        <Link id="primario" onClick={handleSubmit}>Entrar</Link>
                         <br />
                         <p id="ou">
                             ou
-                        </p> 
-                        <Link id="terciario">Cadastre-se</Link> 
-                    </div> 
+                        </p>
+                        <Link id="terciario" to='/cadastro-usuario' >Cadastre-se</Link>
+                    </div>
                 </form>
             </div>
         </div>

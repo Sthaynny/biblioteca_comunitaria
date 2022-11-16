@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import CadastroPage from './pages/cadastro';
+import CadastroUsuarioPage from './pages/cadastro_usuario';
 import DetalhesLivroPage from './pages/detalhe-livro';
 import EmprestimoPage from './pages/emprestimos';
 import HomePage from './pages/home';
@@ -32,6 +33,7 @@ const AppRoutes = () => {
                     <Route exact path='/meus-emprestimos' element={<Private><EmprestimoPage /></Private>} />
                     <Route exact path='/cadastro-livro' element={<Private><CadastroPage /></Private>} />
                     <Route exact path='/detalhe-livro/:id' element={<DetalhesLivroPage />} />
+                    <Route exact path='/cadastro-usuario' element={<CadastroUsuarioPage />} />
                 </Routes>
             </AuthProvider>
         </Router>

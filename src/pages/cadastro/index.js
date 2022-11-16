@@ -1,11 +1,11 @@
 import '../../styles/global.css';
 import './style.css';
 
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
 import { HeaderApp } from '../components/header';
 import { cadastrarLivro } from '../../services/api';
-import { useNavigate } from 'react-router-dom';
 
 export const BodyCadastro = (props) => {
 
@@ -29,7 +29,7 @@ export const BodyCadastro = (props) => {
             <textarea id="input_text" name="base64" required="required" type="text" placeholder="Digite Aqui ... " value={base64} onChange={(e) => setBase64(e.target.value)} />
             <br /><br /><br />
             <div>
-                <button type='submit' id='primario'>Salvar</button>
+                <Link type='submit' id='primario'>Salvar</Link>
             </div>
         </form>
     </div>
