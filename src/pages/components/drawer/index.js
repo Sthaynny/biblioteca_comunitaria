@@ -21,7 +21,7 @@ export const DrawerApp = (props) => {
         } else {
 
             return <div>
-                <Link className='option'>Meus Emprestimos</Link>
+                <Link className='option' to='/meus-emprestimos'>Meus Emprestimos</Link>
             </div>
         }
     }

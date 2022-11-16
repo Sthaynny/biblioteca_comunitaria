@@ -33,4 +33,8 @@ export const excluirLivro = async (id) => {
 export const getEmprestimo = async () => {
     return api.get("/emprestimos/")
 }
+
+export const getMeusEmprestimo = async () => {
+    return api.get("/lists/")
+}
  

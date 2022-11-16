@@ -1,0 +1,19 @@
+.div-img-emprestimo{ 
+    float: left;
+}
+.div-text-emprestimo{ 
+    float: right;
+    padding-left: 32px;
+}
+
+.imagem-emprestimo{
+    width: 150px;
+}
+
+#status-up{
+    color: green;
+}
+
+label{
+    color: white;
+}

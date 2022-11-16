@@ -12,6 +12,7 @@ import DetalhesLivroPage from './pages/detalhe-livro';
 import EmprestimoPage from './pages/emprestimos';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
+import MeusEmprestimosPage from './pages/meus-emprestimos';
 import { useContext } from 'react';
 
 const AppRoutes = () => {
@@ -30,8 +31,9 @@ const AppRoutes = () => {
                 <Routes>
                     <Route exact path='/login' element={<LoginPage />} />
                     <Route exact path='/' element={<HomePage />} />
-                    <Route exact path='/meus-emprestimos' element={<Private><EmprestimoPage /></Private>} />
+                    <Route exact path='/emprestimos' element={<Private><EmprestimoPage /></Private>} />
                     <Route exact path='/cadastro-livro' element={<Private><CadastroPageLivro /></Private>} />
+                    <Route exact path='/meus-emprestimos' element={<Private><MeusEmprestimosPage /></Private>} />
                     <Route exact path='/detalhe-livro/:id' element={<DetalhesLivroPage />} />
                     <Route exact path='/cadastro-usuario' element={<CadastroUsuarioPage />} />
                 </Routes>
