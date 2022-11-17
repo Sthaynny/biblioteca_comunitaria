@@ -34,6 +34,7 @@ const AppRoutes = () => {
                     <Route exact path='/emprestimos' element={<Private><EmprestimoPage /></Private>} />
                     <Route exact path='/cadastro-livro' element={<Private><CadastroPageLivro /></Private>} />
                     <Route exact path='/meus-emprestimos' element={<Private><MeusEmprestimosPage /></Private>} />
+                    <Route exact path='/emprestimos' element={<Private><EmprestimoPage /></Private>} />
                     <Route exact path='/detalhe-livro/:id' element={<DetalhesLivroPage />} />
                     <Route exact path='/cadastro-usuario' element={<CadastroUsuarioPage />} />
                 </Routes>

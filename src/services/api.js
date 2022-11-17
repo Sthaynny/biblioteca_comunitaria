@@ -30,8 +30,8 @@ export const excluirLivro = async (id) => {
     return api.delete("/livro/" + id + '/')
 }
 
-export const getEmprestimo = async () => {
-    return api.get("/emprestimos/")
+export const getEmprestimos = async () => {
+    return api.get("/emprestimo/")
 }
 
 export const getMeusEmprestimo = async () => {

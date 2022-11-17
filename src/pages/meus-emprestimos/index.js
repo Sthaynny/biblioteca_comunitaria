@@ -2,7 +2,7 @@ import './style.css';
 
 import React, { useEffect, useState } from 'react';
 
-import EmprestimoComponent from '../components/emprestimo';
+import { EmprestimoComponent } from '../components/emprestimo';
 import { HeaderApp } from '../components/header';
 import Loader from '../components/loading';
 import { getMeusEmprestimo } from '../../services/api';

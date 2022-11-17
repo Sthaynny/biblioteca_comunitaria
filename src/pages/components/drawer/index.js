@@ -16,7 +16,7 @@ export const DrawerApp = (props) => {
         if (superUser) {
             return <div>
                 <Link className='option' to='/cadastro-livro/'>Cadastro Livro</Link>
-                <Link className='option'>Emprestimos</Link>
+                <Link className='option' to='/emprestimos/'>Emprestimos</Link>
             </div>
         } else {
 
